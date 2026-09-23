@@ -31,6 +31,9 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
+      - name: Run Tests
+        run: npm test
+
       - name: Build Package
         run: npm run build
 
@@ -38,7 +41,7 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          publish: npm run publish
+          publish: npm run release
           version: npm run version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
